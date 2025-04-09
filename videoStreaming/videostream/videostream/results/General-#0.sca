@@ -1,0 +1,48 @@
+version 3
+run General-0-20250409-18:20:14-24080
+attr configname General
+attr datetime 20250409-18:20:14
+attr datetimef 20250409-182014
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network videostream.VideoStreamingNetwork
+attr processid 24080
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network videostream.VideoStreamingNetwork
+config sim-time-limit 100s
+
+par VideoStreamingNetwork.server.out.channel typename "\"ned.DelayChannel\""
+par VideoStreamingNetwork.server.out.channel disabled false
+attr mutable ""
+par VideoStreamingNetwork.server.out.channel delay 0.01s
+attr mutable ""
+attr unit s
+par VideoStreamingNetwork.router.out.channel typename "\"ned.DelayChannel\""
+par VideoStreamingNetwork.router.out.channel disabled false
+attr mutable ""
+par VideoStreamingNetwork.router.out.channel delay 0.01s
+attr mutable ""
+attr unit s
+par VideoStreamingNetwork.server typename "\"videostream.VideoServer\""
+par VideoStreamingNetwork.server segmentInterval 2s
+attr unit s
+par VideoStreamingNetwork.server numSegments 30
+par VideoStreamingNetwork.server quality "\"HD\""
+par VideoStreamingNetwork.router typename "\"videostream.Router\""
+par VideoStreamingNetwork.router linkDelay 0.5s
+attr unit s
+par VideoStreamingNetwork.router dropProbability 0.1
+par VideoStreamingNetwork.router queueCapacity 10
+par VideoStreamingNetwork.client typename "\"videostream.VideoClient\""
+par VideoStreamingNetwork.client bufferThreshold 5s
+attr unit s
+par VideoStreamingNetwork typename "\"videostream.VideoStreamingNetwork\""
+
